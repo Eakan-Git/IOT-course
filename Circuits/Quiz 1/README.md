@@ -1,1 +1,1 @@
-A simple traffic lights simulation with 3 leds.
+A simple traffic light simulation with 3 leds.
