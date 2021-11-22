@@ -1,0 +1,212 @@
+[
+    {
+        "id": "57de0993d3a0f075",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3bfccc2890e9a21",
+        "type": "mqtt out",
+        "z": "57de0993d3a0f075",
+        "name": "",
+        "topic": "/19127608/MSSV",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "bde9c937687cfab3",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "af30828936550474",
+        "type": "ui_text_input",
+        "z": "57de0993d3a0f075",
+        "name": "",
+        "label": "Nhập MSSV",
+        "tooltip": "",
+        "group": "43fc8f001474bfef",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "eff7d783824c1efd"
+            ]
+        ]
+    },
+    {
+        "id": "fa1264b5e342c281",
+        "type": "ui_button",
+        "z": "57de0993d3a0f075",
+        "name": "",
+        "group": "43fc8f001474bfef",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Gửi",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "payload",
+        "payloadType": "flow",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "cf3497a4c83a1260"
+            ]
+        ]
+    },
+    {
+        "id": "cf3497a4c83a1260",
+        "type": "function",
+        "z": "57de0993d3a0f075",
+        "name": "Lấy input",
+        "func": "msg.payload = global.get(\"myMsg\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "c3bfccc2890e9a21"
+            ]
+        ]
+    },
+    {
+        "id": "eff7d783824c1efd",
+        "type": "function",
+        "z": "57de0993d3a0f075",
+        "name": "Lưu input",
+        "func": "global.set(\"myMsg\", msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18d7e2ecceeb88d8",
+        "type": "mqtt in",
+        "z": "57de0993d3a0f075",
+        "name": "",
+        "topic": "/19127608/MQTT",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "bde9c937687cfab3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "67badcea7de5b253"
+            ]
+        ]
+    },
+    {
+        "id": "67badcea7de5b253",
+        "type": "ui_text",
+        "z": "57de0993d3a0f075",
+        "group": "d66decb4bb6db0b6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 390,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "bde9c937687cfab3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "43fc8f001474bfef",
+        "type": "ui_group",
+        "name": "Gửi dữ liệu cho MQTT",
+        "tab": "eb8ef0e44aff7b1d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d66decb4bb6db0b6",
+        "type": "ui_group",
+        "name": "Dữ liệu nhận được từ MQTT",
+        "tab": "eb8ef0e44aff7b1d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eb8ef0e44aff7b1d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
