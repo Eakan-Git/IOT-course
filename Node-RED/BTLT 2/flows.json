@@ -1,0 +1,177 @@
+[
+    {
+        "id": "8ff0b5bd7424d052",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3ed6a7ccc590a8a4",
+        "type": "telegram receiver",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "bot": "447a9cc15166e575",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f9476e356939a5ee",
+        "type": "telegram command",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "command": "/help",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "447a9cc15166e575",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "f0f4f8c1808611fd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f0f4f8c1808611fd",
+        "type": "function",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "func": "msg.payload.type = 'message'\nmsg.payload.content = 'When a message is edited, the bot send a message to notify!\\n'\nmsg.payload.content += 'Reply this message with \"Who?\" for more detail.'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "dfb9a7a537e32a96"
+            ]
+        ]
+    },
+    {
+        "id": "dfb9a7a537e32a96",
+        "type": "telegram sender",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "bot": "447a9cc15166e575",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 360,
+        "wires": [
+            [
+                "9745f11d2d8397ac"
+            ]
+        ]
+    },
+    {
+        "id": "b9a1265999a47898",
+        "type": "telegram event",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "bot": "447a9cc15166e575",
+        "event": "edited_message",
+        "autoanswer": true,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "67ac33b16c55f3aa"
+            ]
+        ]
+    },
+    {
+        "id": "67ac33b16c55f3aa",
+        "type": "function",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "func": "msg.payload.type = 'message'\nmsg.payload.content = 'Someone just edited a message!'\nglobal.set('name',msg.payload.chat.first_name)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "dfb9a7a537e32a96"
+            ]
+        ]
+    },
+    {
+        "id": "9745f11d2d8397ac",
+        "type": "telegram reply",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "bot": "447a9cc15166e575",
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "9b353a47e38d0c44"
+            ]
+        ]
+    },
+    {
+        "id": "9b353a47e38d0c44",
+        "type": "function",
+        "z": "8ff0b5bd7424d052",
+        "name": "",
+        "func": "if(msg.payload.content == 'Who?')\n{\n    msg.payload.type = 'message'\n    msg.payload.content = global.get('name')\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 500,
+        "wires": [
+            [
+                "dfb9a7a537e32a96"
+            ]
+        ]
+    },
+    {
+        "id": "447a9cc15166e575",
+        "type": "telegram bot",
+        "botname": "Test CLC4",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
