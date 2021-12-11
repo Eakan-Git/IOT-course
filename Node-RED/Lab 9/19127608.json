@@ -1,0 +1,143 @@
+[
+    {
+        "id": "4837d81deb58bcda",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "44347c988681897a",
+        "type": "ui_gauge",
+        "z": "4837d81deb58bcda",
+        "name": "",
+        "group": "01ddb7d3ad14819b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Amount of water",
+        "label": "mm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 500,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f0d7b1199d4031e5",
+        "type": "mqtt in",
+        "z": "4837d81deb58bcda",
+        "name": "",
+        "topic": "19127608/Level",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "4d6936f16963f810",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "44347c988681897a",
+                "420bb4a677baa96c"
+            ]
+        ]
+    },
+    {
+        "id": "ce05cee900cd1eab",
+        "type": "http request",
+        "z": "4837d81deb58bcda",
+        "name": "Send level to IFTTT",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 530,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "420bb4a677baa96c",
+        "type": "function",
+        "z": "4837d81deb58bcda",
+        "name": "",
+        "func": "var level = msg.payload\nif(level < 1000)\n{\n    msg.payload = \"Current water volume: \" + level + \"ml\"\n}\nelse\n{\n    msg.payload = \"The amount of water has exceeded: \" + level + \"ml\"\n}\nmsg.url = \"https://maker.ifttt.com/trigger/Rain_Level/with/key/bVmFiXYLoyF4REvNvrgpPA?&value1=\" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "ce05cee900cd1eab"
+            ]
+        ]
+    },
+    {
+        "id": "01ddb7d3ad14819b",
+        "type": "ui_group",
+        "name": "Rain",
+        "tab": "17f0e664559b16bc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4d6936f16963f810",
+        "type": "mqtt-broker",
+        "name": "Get level",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "17f0e664559b16bc",
+        "type": "ui_tab",
+        "name": "Rain",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
