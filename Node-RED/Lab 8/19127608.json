@@ -1,0 +1,379 @@
+[
+    {
+        "id": "6e195a72b822dd74",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8d7d7ce94cd80333",
+        "type": "ui_slider",
+        "z": "6e195a72b822dd74",
+        "name": "",
+        "label": "Temperature",
+        "tooltip": "",
+        "group": "4f81454e117b914b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "15dadefe5cc25167"
+            ]
+        ]
+    },
+    {
+        "id": "e628356ef350ec56",
+        "type": "ui_button",
+        "z": "6e195a72b822dd74",
+        "name": "",
+        "group": "4f81454e117b914b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Insert",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "c36919d6be046926"
+            ]
+        ]
+    },
+    {
+        "id": "3526cf4d9c6ab6d2",
+        "type": "ui_chart",
+        "z": "6e195a72b822dd74",
+        "name": "Load the chart",
+        "group": "e0d203f1384dd948",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 760,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1e011c15fce37f9",
+        "type": "ui_button",
+        "z": "6e195a72b822dd74",
+        "name": "",
+        "group": "e0d203f1384dd948",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "timestamp",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "fd6e5ee353d6e380"
+            ]
+        ]
+    },
+    {
+        "id": "fd6e5ee353d6e380",
+        "type": "http request",
+        "z": "6e195a72b822dd74",
+        "name": "Get temperature",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/1600926/fields/1.json?api_key=TL1CSW3RG9PUCP0A&timezone=Asia/Bangkok&results=20",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "06d8c32256d28b87"
+            ]
+        ]
+    },
+    {
+        "id": "06d8c32256d28b87",
+        "type": "json",
+        "z": "6e195a72b822dd74",
+        "name": "Parse Json",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "5b4ad0e318a7f2a7"
+            ]
+        ]
+    },
+    {
+        "id": "5b4ad0e318a7f2a7",
+        "type": "function",
+        "z": "6e195a72b822dd74",
+        "name": "Save to array",
+        "func": "var a = [[]]; \n\nif (msg.payload.channel.last_entry_id<20)\n{\n    for (let i = 0; i<msg.payload.channel.last_entry_id; i++) \n    { \n    let m = msg.payload.feeds[i].created_at; \n     let d = Number(msg.payload.feeds[i].field1); \n     a[0].push({\"x\":m, \"y\":d});\n    } \n}\nelse {\n    \n    for (let i = msg.payload.channel.last_entry_id-20; i<msg.payload.channel.last_entry_id; i++) \n    { \n           let m = msg.payload.feeds[i].created_at; \n           let d = Number(msg.payload.feeds[i].field1); \n           a[0].push({\"x\":m, \"y\":d});\n    \n    }\n}\n\n\nmsg.payload = [{\"series\":[\"Temperature=\"], \"data\":a, \"labels\":[\"\"]}]; \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "3526cf4d9c6ab6d2"
+            ]
+        ]
+    },
+    {
+        "id": "02ae60ddeae0726b",
+        "type": "http request",
+        "z": "6e195a72b822dd74",
+        "name": "Send temperature",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c36919d6be046926",
+        "type": "function",
+        "z": "6e195a72b822dd74",
+        "name": "Set payload",
+        "func": "msg.payload=\"https://api.thingspeak.com/update?api_key=LPIB97LG292SUW7L&field1=\"+global.get(\"temperature\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "126dd696255027b1"
+            ]
+        ]
+    },
+    {
+        "id": "93a5b07a51f2a479",
+        "type": "ui_text",
+        "z": "6e195a72b822dd74",
+        "group": "16565d65c7c05368",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Name",
+        "label": "Name",
+        "format": "Nguyễn Quang Trường",
+        "layout": "row-spread",
+        "className": "",
+        "x": 90,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "af7b69aa5ba9dfda",
+        "type": "ui_text",
+        "z": "6e195a72b822dd74",
+        "group": "16565d65c7c05368",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "ID",
+        "label": "Student ID",
+        "format": "19127608",
+        "layout": "row-spread",
+        "className": "",
+        "x": 210,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2870d7d2ec4e5bf0",
+        "type": "ui_text",
+        "z": "6e195a72b822dd74",
+        "group": "16565d65c7c05368",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Class",
+        "label": "Class",
+        "format": "19CLC4",
+        "layout": "row-spread",
+        "className": "",
+        "x": 330,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "15dadefe5cc25167",
+        "type": "function",
+        "z": "6e195a72b822dd74",
+        "name": "Save current value",
+        "func": "global.set(\"temperature\", msg.payload);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "126dd696255027b1",
+        "type": "change",
+        "z": "6e195a72b822dd74",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "02ae60ddeae0726b"
+            ]
+        ]
+    },
+    {
+        "id": "4f81454e117b914b",
+        "type": "ui_group",
+        "name": "Data",
+        "tab": "d2ccee0e0e7d9178",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e0d203f1384dd948",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "d2ccee0e0e7d9178",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16565d65c7c05368",
+        "type": "ui_group",
+        "name": "My Profile",
+        "tab": "37628973c2572be1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d2ccee0e0e7d9178",
+        "type": "ui_tab",
+        "name": "Visualization",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "37628973c2572be1",
+        "type": "ui_tab",
+        "name": "My Profile",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

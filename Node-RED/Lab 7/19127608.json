@@ -1,0 +1,681 @@
+[
+    {
+        "id": "a34215bf407b1f8a",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c8fcb8f4d7d076de",
+        "type": "http request",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?id={{payload}}&appid=d56923c484fb07457bab231ba7cf6484&units=metric",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "0157308d326e027f"
+            ]
+        ]
+    },
+    {
+        "id": "810daabe9828e05e",
+        "type": "ui_dropdown",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "label": "City:",
+        "tooltip": "",
+        "place": "Select City",
+        "group": "942fa694d117a5a7",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "An Giang",
+                "value": "1594446",
+                "type": "str"
+            },
+            {
+                "label": "Bà Rịa - Vũng Tàu",
+                "value": "1584534",
+                "type": "str"
+            },
+            {
+                "label": "Bạc Liêu",
+                "value": "1905675",
+                "type": "str"
+            },
+            {
+                "label": "Bắc Giang",
+                "value": "1905419",
+                "type": "str"
+            },
+            {
+                "label": "Bắc Kạn",
+                "value": "1905669",
+                "type": "str"
+            },
+            {
+                "label": "Bắc Ninh",
+                "value": "1905412",
+                "type": "str"
+            },
+            {
+                "label": "Bến Tre",
+                "value": "1587974",
+                "type": "str"
+            },
+            {
+                "label": "Bình Dương",
+                "value": "1905475",
+                "type": "str"
+            },
+            {
+                "label": "Bình Định",
+                "value": "1587871",
+                "type": "str"
+            },
+            {
+                "label": "Bình Phước",
+                "value": "1905480",
+                "type": "str"
+            },
+            {
+                "label": "Bình Thuận",
+                "value": "1581882",
+                "type": "str"
+            },
+            {
+                "label": "Cà Mau",
+                "value": "1905678",
+                "type": "str"
+            },
+            {
+                "label": "Cao Bằng",
+                "value": "1586182",
+                "type": "str"
+            },
+            {
+                "label": "Cần Thơ",
+                "value": "1581188",
+                "type": "str"
+            },
+            {
+                "label": "Đà Nẵng",
+                "value": "1905468",
+                "type": "str"
+            },
+            {
+                "label": "Đắk Lắk",
+                "value": "1584169",
+                "type": "str"
+            },
+            {
+                "label": "Điện Biên",
+                "value": "1905099",
+                "type": "str"
+            },
+            {
+                "label": "Đồng Nai",
+                "value": "1582720",
+                "type": "str"
+            },
+            {
+                "label": "Đồng Tháp",
+                "value": "1582562",
+                "type": "str"
+            },
+            {
+                "label": "Gia Lai",
+                "value": "1581088",
+                "type": "str"
+            },
+            {
+                "label": "Hà Giang",
+                "value": "1581030",
+                "type": "str"
+            },
+            {
+                "label": "Hà Nam",
+                "value": "1905637",
+                "type": "str"
+            },
+            {
+                "label": "Hà Nội",
+                "value": "1581129",
+                "type": "str"
+            },
+            {
+                "label": "Hà Tĩnh",
+                "value": "1580700",
+                "type": "str"
+            },
+            {
+                "label": "Hải Dương",
+                "value": "1905686",
+                "type": "str"
+            },
+            {
+                "label": "Hải Phòng",
+                "value": "1581297",
+                "type": "str"
+            },
+            {
+                "label": "Hòa Bình",
+                "value": "1572594",
+                "type": "str"
+            },
+            {
+                "label": "Thành phố Hồ Chí Minh",
+                "value": "1580578",
+                "type": "str"
+            },
+            {
+                "label": "Hưng Yên",
+                "value": "1905699",
+                "type": "str"
+            },
+            {
+                "label": "Khánh Hòa",
+                "value": "1579634",
+                "type": "str"
+            },
+            {
+                "label": "Kiên Giang",
+                "value": "1579008",
+                "type": "str"
+            },
+            {
+                "label": "Kon Tum",
+                "value": "1565088",
+                "type": "str"
+            },
+            {
+                "label": "Lạng Sơn",
+                "value": "1576632",
+                "type": "str"
+            },
+            {
+                "label": "Lào Cai",
+                "value": "1576303",
+                "type": "str"
+            },
+            {
+                "label": "Lâm Đồng",
+                "value": "1577882",
+                "type": "str"
+            },
+            {
+                "label": "Long An",
+                "value": "1575788",
+                "type": "str"
+            },
+            {
+                "label": "Nam Định",
+                "value": "1573517",
+                "type": "str"
+            },
+            {
+                "label": "Nghệ An",
+                "value": "1559969",
+                "type": "str"
+            },
+            {
+                "label": "Ninh Bình",
+                "value": "1559970",
+                "type": "str"
+            },
+            {
+                "label": "Ninh Thuận",
+                "value": "1559971",
+                "type": "str"
+            },
+            {
+                "label": "Phú Thọ",
+                "value": "1905577",
+                "type": "str"
+            },
+            {
+                "label": "Phú Yên",
+                "value": "1569805",
+                "type": "str"
+            },
+            {
+                "label": "Quảng Bình",
+                "value": "1568839",
+                "type": "str"
+            },
+            {
+                "label": "Quảng Nam",
+                "value": "1905516",
+                "type": "str"
+            },
+            {
+                "label": "Quảng Ngãi",
+                "value": "1568769",
+                "type": "str"
+            },
+            {
+                "label": "Quảng Ninh",
+                "value": "1568758",
+                "type": "str"
+            },
+            {
+                "label": "Quảng Trị",
+                "value": "1568738",
+                "type": "str"
+            },
+            {
+                "label": "Sóc Trăng",
+                "value": "1559972",
+                "type": "str"
+            },
+            {
+                "label": "Sơn La",
+                "value": "1567643",
+                "type": "str"
+            },
+            {
+                "label": "Sơn Tây",
+                "value": "1567621",
+                "type": "str"
+            },
+            {
+                "label": "Thái Bình",
+                "value": "1566338",
+                "type": "str"
+            },
+            {
+                "label": "Thái Nguyên",
+                "value": "1566319",
+                "type": "str"
+            },
+            {
+                "label": "Thanh Hóa",
+                "value": "1566165",
+                "type": "str"
+            },
+            {
+                "label": "Thừa Thiên Huế",
+                "value": "1565033",
+                "type": "str"
+            },
+            {
+                "label": "Tiền Giang",
+                "value": "1564676",
+                "type": "str"
+            },
+            {
+                "label": "Trà Vinh",
+                "value": "1563926",
+                "type": "str"
+            },
+            {
+                "label": "Vĩnh Long",
+                "value": "1559977",
+                "type": "str"
+            },
+            {
+                "label": "Vĩnh Phúc",
+                "value": "1905856",
+                "type": "str"
+            },
+            {
+                "label": "Yên Bái",
+                "value": "1560349",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "value",
+        "topicType": "msg",
+        "className": "",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "fb7b021107508317"
+            ]
+        ]
+    },
+    {
+        "id": "0121e378661524fb",
+        "type": "ui_gauge",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 3,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "°C",
+        "format": "{{msg.payload.main.temp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "30",
+        "className": "",
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "0157308d326e027f",
+        "type": "json",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "0121e378661524fb",
+                "dbbfc18d40ba7176",
+                "6729718e4c42bb67",
+                "59c4e8f09f66071f",
+                "1e3692c83bc364e9"
+            ]
+        ]
+    },
+    {
+        "id": "dbbfc18d40ba7176",
+        "type": "ui_gauge",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 5,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "",
+        "format": "{{msg.payload.main.humidity}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "className": "",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6729718e4c42bb67",
+        "type": "ui_gauge",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 6,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Wind Speed",
+        "label": "",
+        "format": "{{msg.payload.wind.speed}}",
+        "min": "0",
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "className": "",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "59c4e8f09f66071f",
+        "type": "ui_gauge",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 7,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Clouds",
+        "label": "",
+        "format": "{{msg.payload.clouds.all}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "className": "",
+        "x": 780,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1e3692c83bc364e9",
+        "type": "ui_gauge",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 4,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "",
+        "format": "{{msg.payload.main.pressure}}",
+        "min": "0",
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1000",
+        "seg2": "1500",
+        "className": "",
+        "x": 780,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0c43841384786cc2",
+        "type": "ui_text",
+        "z": "a34215bf407b1f8a",
+        "group": "c2e82eb227933efb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Name:",
+        "format": "Nguyễn Quang Trường",
+        "layout": "row-spread",
+        "className": "",
+        "x": 90,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7656d8a7b6bec487",
+        "type": "ui_text",
+        "z": "a34215bf407b1f8a",
+        "group": "c2e82eb227933efb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ID:",
+        "format": "19127608",
+        "layout": "row-spread",
+        "className": "",
+        "x": 90,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "239cae60389fa32f",
+        "type": "ui_text",
+        "z": "a34215bf407b1f8a",
+        "group": "c2e82eb227933efb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Class",
+        "format": "19CLC4",
+        "layout": "row-spread",
+        "className": "",
+        "x": 90,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a709b6a1c8a288b5",
+        "type": "ui_button",
+        "z": "a34215bf407b1f8a",
+        "name": "",
+        "group": "942fa694d117a5a7",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Submit",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "submit",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "86a66296094f7d3f"
+            ]
+        ]
+    },
+    {
+        "id": "86a66296094f7d3f",
+        "type": "switch",
+        "z": "a34215bf407b1f8a",
+        "name": "If click submit",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "submit",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "1de44fcad593218e"
+            ]
+        ]
+    },
+    {
+        "id": "1de44fcad593218e",
+        "type": "function",
+        "z": "a34215bf407b1f8a",
+        "name": "Get city",
+        "func": "msg.payload = global.get('city');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "c8fcb8f4d7d076de"
+            ]
+        ]
+    },
+    {
+        "id": "fb7b021107508317",
+        "type": "function",
+        "z": "a34215bf407b1f8a",
+        "name": "Save city",
+        "func": "global.set('city', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set('city','');",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "942fa694d117a5a7",
+        "type": "ui_group",
+        "name": "Weather",
+        "tab": "893e7d5c76524f01",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c2e82eb227933efb",
+        "type": "ui_group",
+        "name": "My Info",
+        "tab": "893e7d5c76524f01",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "893e7d5c76524f01",
+        "type": "ui_tab",
+        "name": "My Weather Station",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
