@@ -1,0 +1,267 @@
+[
+    {
+        "id": "0ffc77efe2322de5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4d31a1d129b25f5d",
+        "type": "ui_button",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "group": "5316e4adbe1356d0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "star",
+        "payload": "Clicked",
+        "payloadType": "str",
+        "topic": "Button",
+        "topicType": "str",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "4b838bf2e2856971",
+        "type": "ui_dropdown",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "label": "Choices",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "5316e4adbe1356d0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "Choice 1: string",
+                "value": "Hello",
+                "type": "str"
+            },
+            {
+                "label": "Choice 2: numeric",
+                "value": 5,
+                "type": "num"
+            },
+            {
+                "label": "Choice 3: bool",
+                "value": true,
+                "type": "bool"
+            }
+        ],
+        "payload": "",
+        "topic": "Dropdown",
+        "topicType": "str",
+        "className": "",
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "9b762be232b558d5",
+        "type": "ui_switch",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "label": "Switch",
+        "tooltip": "",
+        "group": "5316e4adbe1356d0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "Switch",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "672d8f1a0db03c5d",
+        "type": "ui_slider",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "label": "Slider",
+        "tooltip": "",
+        "group": "5316e4adbe1356d0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "Slider",
+        "topicType": "str",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "[{\"id\":\"4bc92110.64406\",\"type\":\"ui_template\",\"z\":\"7993e570.4aafac\",\"group\":\"93892d22.50ab8\",\"name\":\"\",\"order\":3,\"width\":0,\"height\":0,\"format\":\"<style>\\nmd-slider[md-discrete] .md-sign,\\nmd-slider[md-discrete] .md-sign:after {\\n opacity: 1;\\n -webkit-transform: translate3d(0, 0, 0) scale(1);\\n transform: translate3d(0, 0, 0) scale(1);\\n}\\n</style>\",\"storeOutMessages\":true,\"fwdInMessages\":true,\"templateScope\":\"global\",\"x\":660,\"y\":320,\"wires\":[[]]},{\"id\":\"992bc11f.dc2a4\",\"type\":\"ui_slider\",\"z\":\"7993e570.4aafac\",\"name\":\"\",\"label\":\"slider\",\"tooltip\":\"\",\"group\":\"93892d22.50ab8\",\"order\":4,\"width\":0,\"height\":0,\"passthru\":true,\"outs\":\"end\",\"topic\":\"\",\"min\":0,\"max\":10,\"step\":1,\"x\":650,\"y\":360,\"wires\":[[]]},{\"id\":\"93892d22.50ab8\",\"type\":\"ui_group\",\"z\":\"\",\"name\":\"charts\",\"tab\":\"a24618c5.be59c8\",\"disp\":true,\"width\":\"14\",\"collapse\":false},{\"id\":\"a24618c5.be59c8\",\"type\":\"ui_tab\",\"z\":\"\",\"name\":\"tab 1\",\"icon\":\"weekend\",\"order\":1,\"disabled\":false,\"hidden\":false}]",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "4e3379b615a00579",
+        "type": "ui_numeric",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "label": "Numeric",
+        "tooltip": "",
+        "group": "5316e4adbe1356d0",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "Numeric",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "8f4135d682252226",
+        "type": "ui_text_input",
+        "z": "0ffc77efe2322de5",
+        "name": "",
+        "label": "Change Text",
+        "tooltip": "",
+        "group": "5316e4adbe1356d0",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "Text Input",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 480,
+        "wires": [
+            [
+                "4e706e0ec8a8533f"
+            ]
+        ]
+    },
+    {
+        "id": "4e706e0ec8a8533f",
+        "type": "function",
+        "z": "0ffc77efe2322de5",
+        "name": "Push event log to array",
+        "func": "var dashboardLog = flow.get('dashboardLog') || [];\ndashboardLog.push(msg);\nif(dashboardLog.length > 20)\n{\n    dashboardLog.shift();\n    dashboardLog.length = 20;\n}\nflow.set('dashboardLog', dashboardLog);\nmsg = {};\nmsg.payload = dashboardLog;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "2c59716a29b2bd2b"
+            ]
+        ]
+    },
+    {
+        "id": "2c59716a29b2bd2b",
+        "type": "ui_template",
+        "z": "0ffc77efe2322de5",
+        "group": "edf51550806831d8",
+        "name": "Logs",
+        "order": 6,
+        "width": "6",
+        "height": "6",
+        "format": "<ul>\n    <li ng-repeat = \"x in msg.payload\">\n        <font color=\"red\">{{x.topic}}</font>\n        <ul>\n            <li>{{x.payload}}</li>\n        </ul>\n    </li>\n</ul>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 790,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5316e4adbe1356d0",
+        "type": "ui_group",
+        "name": "UI Elements",
+        "tab": "893e7d5c76524f01",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "edf51550806831d8",
+        "type": "ui_group",
+        "name": "Logs",
+        "tab": "893e7d5c76524f01",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "893e7d5c76524f01",
+        "type": "ui_tab",
+        "name": "Event Logs",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
